@@ -45,6 +45,7 @@ https://{web}/api/shoptet/stores
   "6": {"from": "Zavřeno", "to": "Zavřeno", "closed": true}
 }
 0 = Pondělí, ..., 6 = Neděle
+```
 
 ![back](images/2025-06-02-15-47-16_fttHSzbI.gif)
 
@@ -54,7 +55,7 @@ Získá seznam všech prodejen.
 Možné parametry: např. visible=1
 
 Odpověď:
-
+```json
 [
   {
     "id": 5,
@@ -74,7 +75,7 @@ Odpověď:
     "visible": 1
   }
 ]
-
+```
 
 GET /stores/{id}
 Získá detail konkrétní prodejny.
@@ -92,7 +93,7 @@ Doporučené:
 delivery_point_address, visible, další dle potřeby
 
 Příklad:
-
+```json
 {
   "title": "Kitos Brno",
   "delivery_point_address": "Náměstí 1, Brno",
@@ -109,22 +110,22 @@ Příklad:
   "extra_note": "Omezený vstup",
   "visible": 1
 }
-
+```
 PUT /stores/{id}
 Upraví existující prodejnu (stejná struktura jako POST).
 
 Odpověď:
-
+```json
 { "status": "ok", "id": 123 }
-
+```
 
 DELETE /stores/{id}
 Smaže prodejnu dle ID.
 
 Odpověď:
-
+```json
 { "status": "deleted", "id": 123 }
-
+```
 POST /stores/{id}/upload-image
 Nahrání obrázku pro prodejnu.
 
@@ -132,9 +133,9 @@ Formát: multipart/form-data
 Parametr: image (soubor)
 
 Odpověď:
-
+```json
 { "status": "ok", "url": "/img/store_xyz.jpg" }
-
+```
 
 Testovací HTML formulář:
 <form enctype="multipart/form-data" method="post" action="/api/shoptet/stores/{id}/upload-image">
@@ -154,8 +155,9 @@ to: zavírací hodina
 closed: true pokud zavřeno
 
 Příklad zavřeného dne:
+```json
 { "5": { "from": "Zavřeno", "to": "Zavřeno", "closed": true } }
-
+```
 !!!Upozornění: Pro operace POST, PUT, DELETE, upload-image je vyžadována autentizace dle nastavení serveru.
 
 ![realizace](images/2025-06-02-15-51-45_xG1Pah8P.gif)
